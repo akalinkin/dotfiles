@@ -12,6 +12,8 @@ set number                    " show line numbers
 set relativenumber            " Show relative line numbers
 set laststatus=2              " allways show status line
 set ruler                     " show line and col position
+"set foldmethod=manual	      " allow manual folding
+set nofoldenable              " disable folding
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -83,7 +85,7 @@ au BufEnter *.sol set sw=4 ts=4 et
 
 " Vim5 and later versions support syntax highlighting. Uncommenting the
 " following enables syntax highlighting by default.
-if has("syntax")
-   syntax on
-endif
+" if has("syntax")
+"    syntax on
+" endif
 

@@ -15,4 +15,5 @@ My dotfiles to share configuration between workspaces
 - .aliases - Shared (between *bash* and *zsh*) command aliases
 - .bashrc - Bash config
 - .zshrc - ZSH config
+- .tmux.conf - TMUX configuration
 
