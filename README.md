@@ -12,9 +12,9 @@ My dotfiles to share configuration between workspaces
 
 ## Contents
 
-- [.vimrc] - VIM configuration
-- [.aliases] - Shared (between *bash* and *zsh*) command aliases
-- [.bashrc] - Bash config
-- [.zshrc] - ZSH config
-- [.tmux.conf] - TMUX configuration
+- [.aliases](.aliases) - Shared (between *bash* and *zsh*) command aliases
+- [.vimrc](.vimrc) - [Vim](https://www.vim.org/) configuration
+- [.bashrc](.bashrc) - [Bash](https://www.gnu.org/software/bash/) config
+- [.zshrc](.zshrc) - [Zsh](http://www.zsh.org/) config
+- [.tmux.conf](.tmux.conf) - TMUX configuration
 
