@@ -6,8 +6,9 @@ My dotfiles to share configuration between workspaces
 
 1. Install *git* `sudo apt install git`
 1. Install *tmux* `sudo apt install tmux`
+1. Install *tpm* `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 1. Install *vim* `sudo apt install vim`
-1. 
+1. Install *urlview* `sudo apt install urlview`
 
 ## Contents
 
