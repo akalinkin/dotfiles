@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Aliaces file (can be used both for .bashrc or .zshrc)
+
+# System
+alias shutdown="sudo shutdown -h 0"
+alias sysupgrade="sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get clean && sudo apt-get autoremove"
+
+# Git
+alias gcd="git checkout develop"
+
