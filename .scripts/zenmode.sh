@@ -26,6 +26,10 @@ while getopts :hm: option; do
   esac
 done
 
+# toggle FullScreen (require wmctrl)
+toggle_full_screen() {
+  wmctrl -r ':ACTIVE:' -b toggle,fullscreen
+}
 
 # disable arrow keys
 disable_arrow_kews() {
@@ -54,11 +58,13 @@ enable_mouse() {
 enable_mode() {
   disable_arrow_kews
   disable_mouse
+  toggle_full_screen
 }
 
 disable_mode() {
   enable_arrow_keys 
   enable_mouse
+  toggle_full_screen
 }
 
 if [ "$MODE" = 0 ]; then
