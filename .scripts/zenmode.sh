@@ -69,17 +69,19 @@ disable_mode() {
 
 if [ "$MODE" = 0 ]; then
   echo "ZenMode: Disabled"
-  disable_mode
+#  disable_mode
 elif [ "$MODE" = 1 ]; then
   echo "ZenMode: Enabled"
-  enable_mode
+#  enable_mode
 elif [ "$MODE" = -1 ]; then
-  echo "ZenMode param was not passed. Try to get from TODO: some state"
+  echo "ZenMode param was not passed. Try to get from saved state"
   if [ ! -w "$ZENMODESTATUSFILE" ]; then
     MODE=1
     echo "$MODE" >> $ZENMODESTATUSFILE
   else 
     MODE=`cat $ZENMODESTATUSFILE`
+    # toggle mode
+    if [ "$MODE" = 1 ]; then MODE=0; else MODE=1;fi
   fi
 else 
   echo "Incorrect -m option value"
@@ -87,7 +89,6 @@ else
   exit -1
 fi
 
-
-
-
-
+if [ "$MODE" = 0 ]; then disable_mode; fi
+if [ "$MODE" = 1 ]; then enable_mode; fi
+echo "$MODE" > $ZENMODESTATUSFILE
