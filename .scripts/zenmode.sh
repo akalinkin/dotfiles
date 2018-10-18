@@ -1,5 +1,7 @@
 #!/bin/bash
 # This script toggle Zen mode
+ZENMODESTATUSFILE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/.zenmodestatus"
+echo "$ZENMODESTATUSFILE";
 
 usage="$(basename "$0") [-h] [-m n] -- zen mode script
 
@@ -67,6 +69,12 @@ elif [ "$MODE" = 1 ]; then
   enable_mode
 elif [ "$MODE" = -1 ]; then
   echo "ZenMode param was not passed. Try to get from TODO: some state"
+  if [ ! -w "$ZENMODESTATUSFILE" ]; then
+    MODE=1
+    echo "$MODE" >> $ZENMODESTATUSFILE
+  else 
+    MODE=`cat $ZENMODESTATUSFILE`
+  fi
 else 
   echo "Incorrect -m option value"
   echo "$usage" >&2
