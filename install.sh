@@ -1,13 +1,12 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 USER="$(whoami)";
 USERHOME="/home/$USER";
-DOTFILESDIR="$USERHOME/dotfiles";
+DOTFILESDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "Current user: $USER"
 echo "User home directory: $USERHOME";
-
-# cd "$DOTFILESDIR";
+echo "Dotfiles directory: $DOTFILESDIR";
 
 function linkDotfiles() {
   echo "Linkin dotfiles:";
@@ -15,7 +14,6 @@ function linkDotfiles() {
   # .aliases
   FILE=".aliases";
   read -p "This action will override your \"~/$FILE\" file (y/n) " -n 1;
-  echo "";
   echo "";
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "Removing existing \"~/$FILE\" file";
@@ -28,7 +26,6 @@ function linkDotfiles() {
   FILE=".vimrc";
   read -p "This action will override your \"~/$FILE\" file (y/n) " -n 1;
   echo "";
-  echo "";
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "Removing existing \"~/$FILE\" file";
     rm "$USERHOME/$FILE";
@@ -39,7 +36,6 @@ function linkDotfiles() {
   # .bashrc
   FILE=".bashrc";
   read -p "This action will override your \"~/$FILE\" file (y/n) " -n 1;
-  echo "";
   echo "";
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "Removing existing \"~/$FILE\" file";
@@ -52,7 +48,6 @@ function linkDotfiles() {
   FILE=".zshrc";
   read -p "This action will override your \"~/$FILE\" file (y/n) " -n 1;
   echo "";
-  echo "";
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "Removing existing \"~/$FILE\" file";
     rm "$USERHOME/$FILE";
@@ -64,11 +59,21 @@ function linkDotfiles() {
   FILE=".tmux.conf";
   read -p "This action will override your \"~/$FILE\" file (y/n) " -n 1;
   echo "";
-  echo "";
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "Removing existing \"~/$FILE\" file";
     rm "$USERHOME/$FILE";
     ln -sv "$DOTFILESDIR/$FILE" "$USERHOME/$FILE";
+    echo "DONE";
+  fi;
+
+  # .scripts folder
+  DIR=".scripts";
+  read -p "This action will override your \"~/$DIR\" directory (y/n) " -n 1;
+  echo "";
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "Removing existing \"~/$FILE\" directory";
+    rm -rf "$USERHOME/$DIR";
+    ln -sv "$DOTFILESDIR/$DIR" "$USERHOME/$DIR";
     echo "DONE";
   fi;
 
