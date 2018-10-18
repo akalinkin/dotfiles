@@ -1,7 +1,7 @@
 #!/bin/bash
-# This script toggle Nightmare mode
+# This script toggle Zen mode
 
-usage="$(basename "$0") [-h] [-m n] -- nightmare mode script
+usage="$(basename "$0") [-h] [-m n] -- zen mode script
 
 where: 
     -h  show this help text 
@@ -60,13 +60,13 @@ disable_mode() {
 }
 
 if [ "$MODE" = 0 ]; then
-  echo "NightmareMode: Disabled"
+  echo "ZenMode: Disabled"
   disable_mode
 elif [ "$MODE" = 1 ]; then
-  echo "NightmareMode: Enabled"
+  echo "ZenMode: Enabled"
   enable_mode
 elif [ "$MODE" = -1 ]; then
-  echo "NightmareMode param was not passed. Try to get from TODO: some state"
+  echo "ZenMode param was not passed. Try to get from TODO: some state"
 else 
   echo "Incorrect -m option value"
   echo "$usage" >&2
