@@ -89,3 +89,12 @@ au BufEnter *.sol set sw=4 ts=4 et
 "    syntax on
 " endif
 
+" Set russian input in Vim using `Ctrl+^`
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
+highlight lCursor guifg=NONE guibg=Cyan
+
+" Set russian spell check with `ё`
+:setlocal spell spelllang=ru_yo,en_us
+

@@ -11,3 +11,4 @@ alias gcd="git checkout develop"
 
 # PowerUser
 alias zen="/bin/bash ~/.scripts/zenmode.sh"
+alias z="zen"
