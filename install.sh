@@ -66,6 +66,17 @@ function linkDotfiles() {
     echo "DONE";
   fi;
 
+  # .taskrc
+  FILE=".taskrc";
+  read -p "This action will override your \"~/$FILE\" file (y/n) " -n 1;
+  echo "";
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "Removing existing \"~/$FILE\" file";
+    rm "$USERHOME/$FILE";
+    ln -sv "$DOTFILESDIR/$FILE" "$USERHOME/$FILE";
+    echo "DONE";
+  fi;
+
   # .scripts folder
   DIR=".scripts";
   read -p "This action will override your \"~/$DIR\" directory (y/n) " -n 1;
