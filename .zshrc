@@ -63,6 +63,7 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -115,5 +116,10 @@ zle -N zle-keymap-select
 prompt_dir() {
   prompt_segment blue black '%1~'
 }
+
+# kubernetes autocomplete
+if [ $commands[kubectl] ]; then
+  source <(kubectl completion zsh)
+fi
 
 MPD_HOST="192.168.0.59"
