@@ -8,6 +8,7 @@ alias sysupgrade="sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get
 
 # Git
 alias gcd="git checkout develop"
+alias gpod="git pull origin develop"
 
 # PowerUser
 alias zen="/bin/bash ~/.scripts/zenmode.sh"
