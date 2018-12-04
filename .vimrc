@@ -6,14 +6,14 @@
 " Source: https://github.com/akalinkin/vimconf
 "
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
-set number                    " show line numbers
-set relativenumber            " Show relative line numbers
-set laststatus=2              " allways show status line
-set ruler                     " show line and col position
-"set foldmethod=manual	      " allow manual folding
-set nofoldenable              " disable folding
+set nocompatible               " be iMproved, required
+filetype off                   " required
+set number relativenumber      " show line numbers and relative numbers (offsets)
+set laststatus=2               " allways show status line
+set ruler                      " show line and col position
+"set foldmethod=manual	       " allow manual folding
+set nofoldenable               " disable folding
+set wildmode=longest,list,full " autocomplete stuff
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
