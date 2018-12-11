@@ -38,6 +38,8 @@ Bundle 'OmniSharp/omnisharp-vim'
 Plugin 'tomlion/vim-solidity'
 Plugin 'editorconfig/editorconfig-vim'
 
+" Powerline
+Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 " filetype plugin indent on    " required
@@ -56,6 +58,8 @@ filetype plugin on
 
 " Set the project directory to the Directory where Vim was started
 set path=$PWD/**
+
+:imap jj <Esc>
 
 " Show hidden files in tree
 let NERDTreeShowHidden=1
@@ -175,3 +179,7 @@ nnoremap <Leader>th :OmniSharpHighlightTypes<CR>
 " Enable snippet completion
 " let g:OmniSharp_want_snippet=1
 
+
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
