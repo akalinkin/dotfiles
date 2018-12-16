@@ -4,11 +4,19 @@
 
 # System
 alias shutdown="sudo shutdown -h 0"
+alias suspend="sudo systemctl suspend"
 alias sysupgrade="sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get clean && sudo apt-get autoremove"
 
 # Git
 alias gcd="git checkout develop"
 alias gpod="git pull origin develop"
+
+# Vim
+alias v="vim"
+alias vcfv="vim ~/.vimrc"
+alias vcfb="vim ~/.bashrc"
+alias vcfz="vim ~/.zshrc"
+alias vcft="vim ~/.tmux.conf"
 
 # PowerUser
 alias zen="/bin/bash ~/.scripts/zenmode.sh"
