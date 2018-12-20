@@ -38,6 +38,9 @@ Bundle 'OmniSharp/omnisharp-vim'
 Plugin 'tomlion/vim-solidity'
 Plugin 'editorconfig/editorconfig-vim'
 
+" Presentaion mode
+Plugin 'sotte/presenting.vim'
+
 " Powerline
 Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 " All of your Plugins must be added before the following line
