@@ -18,6 +18,9 @@ alias vcfb="vim ~/.bashrc"
 alias vcfz="vim ~/.zshrc"
 alias vcft="vim ~/.tmux.conf"
 
+# Screencast
+alias webcammpv="/bin/bash ~/.scripts/webcammpv.sh"
+
 # PowerUser
 alias zen="/bin/bash ~/.scripts/zenmode.sh"
 alias z="zen"
