@@ -35,3 +35,4 @@ Run `install.sh` to create symlinks to your home folder
 ### Useful scripts/commands
 
 - [.scripts/zenmode.sh](.scripts/zenmode.sh) - toggle Zen mode (disable arrow keys, disable mouse, enable full screen) alias `zen` 
+- [.scripts/webcammpv.sh](.scripts/webcammpv.sh) - Show window in the bottom-right corner with streamed video from webcam. (Usefull for screencasts if you whant to make your videos more personalized)
