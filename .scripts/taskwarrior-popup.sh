@@ -1,4 +1,5 @@
 #!/bin/bash
+# $ crontab -u $USER -e
 # For cron: */20 10-21 * * MON,TUE,WED,THU,FRI env DISPLAY=:0.0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus /home/$USER/dotfiles/.scripts/taskwarrior-popup.sh
 # Requires linux with notify-send and canberra-gtk-play which are default on Ubuntu
 
