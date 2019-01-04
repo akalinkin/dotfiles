@@ -24,3 +24,6 @@ alias webcammpv="/bin/bash ~/.scripts/webcammpv.sh"
 # PowerUser
 alias zen="/bin/bash ~/.scripts/zenmode.sh"
 alias z="zen"
+
+# Task management
+alias t="task"
