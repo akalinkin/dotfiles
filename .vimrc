@@ -32,6 +32,8 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Markdown syntax highlighting
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+" vimwiki
+Plugin 'vimwiki/vimwiki'
 " c#
 Bundle 'OmniSharp/omnisharp-vim'
 " Solidity language (Ethereum smart contracts)
@@ -61,6 +63,8 @@ filetype plugin on
 
 " Set the project directory to the Directory where Vim was started
 set path=$PWD/**
+set tabstop=4
+set nospell
 
 :imap jj <Esc>
 
