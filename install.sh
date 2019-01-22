@@ -77,6 +77,28 @@ function linkDotfiles() {
     echo "DONE";
   fi;
 
+  # .taskrc.holidays.ru-RU.rc
+  FILE=".taskrc.holidays.ru-RU.rc";
+  read -p "This action will override your \"~/$FILE\" file (y/n) " -n 1;
+  echo "";
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "Removing existing \"~/$FILE\" file";
+    rm "$USERHOME/$FILE";
+    ln -sv "$DOTFILESDIR/$FILE" "$USERHOME/$FILE";
+    echo "DONE";
+  fi;
+
+  # .timewarrior.holidays.ru-RU
+  FILE=".timewarrior.holidays.ru-RU";
+  read -p "This action will override your \"~/$FILE\" file (y/n) " -n 1;
+  echo "";
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "Removing existing \"~/$FILE\" file";
+    rm "$USERHOME/$FILE";
+    ln -sv "$DOTFILESDIR/$FILE" "$USERHOME/$FILE";
+    echo "DONE";
+  fi;
+
   # .scripts folder
   DIR=".scripts";
   read -p "This action will override your \"~/$DIR\" directory (y/n) " -n 1;
