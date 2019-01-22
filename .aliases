@@ -27,3 +27,11 @@ alias z="zen"
 
 # Task management
 alias t="task"
+
+
+# Docker pretty output
+alias dockps='docker ps --format="table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"'
+alias dockpsa='docker ps -a --format="table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"'
+alias dockports='docker ps --format="table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Ports}}"'
+alias dockportsa='docker ps -a --format="table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Ports}}"'
+

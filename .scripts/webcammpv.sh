@@ -24,7 +24,7 @@ while getopts :hm: option; do
 done
 
 start_mpv() {
-  mpv --geometry=416x312-20-40 --ontop --really-quiet=yes --border=no /dev/video0 &
+  mpv --geometry=416x312-20-40 --ontop --really-quiet --border=no /dev/video0 &
   echo $! >/tmp/webcammpv.pid
 }
 
