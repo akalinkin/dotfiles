@@ -1,0 +1,18 @@
+# Holiday data provided manualy by Alex Kalinkin <alex@kalinkin.info>
+define holidays:
+  ru-RU:
+    2019_01_01 = New Year's Day
+    2019_01_02 = New Year's holidays
+    2019_01_03 = New Year's holidays
+    2019_01_04 = New Year's holidays
+    2019_01_05 = New Year's holidays
+    2019_01_06 = New Year's holidays
+    2019_01_07 = Russian Xmas
+    2019_02_23 = Defender of the Fatherland Day
+    2019_02_28 = Alex's Birthday
+    2019_02_08 = International Women's Day
+    2019_05_01 = International Workers' Day
+    2019_05_09 = Victory Day
+    2019_05_12 = Russia Day
+    2019_09_13 = Day of the Programmer
+    2019_11_04 = Unity Day

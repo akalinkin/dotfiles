@@ -31,9 +31,7 @@ include /usr/share/taskwarrior/solarized-dark-256.theme
 
 #Holidays
 # TODO: Make include file with required holidays and show them in `task calendar` output
-#include ~/.taskrc.holidays.ru-RU.rc
-#holiday.ru-RU1.name=New Year day
-#holiday.ru-RU1.date=20190101
+include ~/.taskrc.holidays.ru-RU.rc
 
 uda.totalactivetime.type=duration
 uda.totalactivetime.label=Total active time
@@ -42,3 +40,5 @@ report.list.labels=ID,Active,Age,Time Spent,D,P,Project,Tags,R,Sch,Due,Until,Des
 report.list.columns=id,start.age,entry.age,totalactivetime,depends.indicator,priority,project,tags,recur.indicator,scheduled.countdown,due,until.remaining,description.count,urgency
 context.home=+work or +freelance
 context.vacation=-work
+context.garage=+auto
+calendar.holidays=full
