@@ -1,6 +1,4 @@
 # Holiday data provided manualy by Alex Kalinkin <alex@kalinkin.info>
-# 2019
-
 define holidays:
   ru-RU:
     2019_01_01 = New Year's Day
