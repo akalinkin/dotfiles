@@ -47,11 +47,12 @@ enable_arrow_keys() {
 }
 
 disable_mouse() {
-  xinput set-prop 10 "Device Enabled" 0	
+  # xinput set-prop 10 "Device Enabled" 0	# Ubuntu 18.04
+  xinput set-prop 14 "Device Enabled" 0		# Debian Stretch
 }
 
 enable_mouse() {
-  xinput set-prop 10 "Device Enabled" 1
+  xinput set-prop 14 "Device Enabled" 1
 }
 
 enable_mode() {
