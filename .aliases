@@ -2,6 +2,10 @@
 
 # Aliaces file (can be used both for .bashrc or .zshrc)
 
+#copy and move with progress bar
+alias pcp='rsync -aP'
+alias pmv='rsync -aP --remove-source-files'
+
 # System
 alias shutdown="sudo shutdown -h 0"
 alias suspend="sudo systemctl suspend"
