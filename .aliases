@@ -10,6 +10,8 @@ alias pmv='rsync -aP --remove-source-files'
 alias shutdown="sudo shutdown -h 0"
 alias suspend="sudo systemctl suspend"
 alias sysupgrade="sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get clean && sudo apt-get autoremove"
+alias volumeup="amixer set Master 10%+"
+alias volumedown="amixer set Master 10%-"
 
 # Git
 alias gcd="git checkout develop"
@@ -39,3 +41,5 @@ alias dockpsa='docker ps -a --format="table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{
 alias dockports='docker ps --format="table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Ports}}"'
 alias dockportsa='docker ps -a --format="table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Ports}}"'
 
+# Connections
+alias ssh-tor='torsocks ssh'
