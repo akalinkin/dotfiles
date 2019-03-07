@@ -110,6 +110,16 @@ function linkDotfiles() {
     echo "DONE";
   fi;
 
+  # i3 folder
+  DIR=".config/i3";
+  read -p "This action will override your \"~/$DIR\" directory (y/n) " -n 1;
+  echo "";
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "Removing existing \"~/$FILE\" directory";
+    rm -rf "$USERHOME/$DIR";
+    ln -sv "$DOTFILESDIR/i3" "$USERHOME/$DIR";
+    echo "DONE";
+  fi;
 
 }
 

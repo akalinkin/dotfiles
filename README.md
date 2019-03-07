@@ -35,6 +35,7 @@ Run `install.sh` to create symlinks to your home folder
 - [.zshrc](.zshrc) - [Zsh](http://www.zsh.org/) config
 - [.tmux.conf](.tmux.conf) - TMUX configuration
 - [.taskrc](.taskrc) - Taskwarrior configuration
+- [i3/config](i3/config) - i3 window manager configuration
 
 ### Useful scripts/commands
 
