@@ -126,3 +126,5 @@ MPD_HOST="192.168.0.59"
 
 # Powerline (but I want to have only last catalog name in zsh promt)
 # . /home/alex/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+
+bindkey -M vicmd v edit-command-line
