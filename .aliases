@@ -43,3 +43,6 @@ alias dockportsa='docker ps -a --format="table {{.ID}}\t{{.Image}}\t{{.Names}}\t
 
 # Connections
 alias ssh-tor='torsocks ssh'
+
+# Hardware
+alias battery='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
