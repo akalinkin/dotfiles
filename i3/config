@@ -165,9 +165,11 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-scale ~/Dropbox/Images/WallPappers/1920x1080/infrared_pond-wallpaper-1920x1080.jpg
 
 # Autostart apps
-exec --no-startup-id /usr/bin/dropbox start -i              # Dropbox
-exec --no-startup-id /usr/bin/nm-applet --sm-disable        # Network Manager
+exec --no-startup-id /usr/bin/dropbox start -i                    # Dropbox
+exec --no-startup-id /usr/bin/nm-applet --sm-disable              # Network Manager
 exec --no-startup-id /usr/bin/gnome-pomodoro --no-default-window  # Pomodoro
+exec --no-startup-id /usr/bin/telegram -startintray               # Telegram messenger
+
 
 # Remove window decoration
 new_window 1pixel
