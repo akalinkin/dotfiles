@@ -56,13 +56,15 @@ function linkDotfiles() {
   fi;
   
   # .muttrc
-  FILE=".muttrc";
-  read -p "This action will override your \"~/$FILE\" file (y/n) " -n 1;
+  SRC_FILE=".muttrc.example";
+  DEST_FILE=".muttrc";
+  read -p "This action will override your \"~/$DEST_FILE\" file (y/n) " -n 1;
   echo "";
   if [[ $REPLY =~ ^[Yy]$ ]]; then
-    echo "Removing existing \"~/$FILE\" file";
-    rm "$USERHOME/$FILE";
-    ln -sv "$DOTFILESDIR/$FILE" "$USERHOME/$FILE";
+    echo "Removing existing \"~/$DEST_FILE\" file";
+    rm "$USERHOME/$DEST_FILE";
+    cp "$DOTFILESDIR/$SRC_FILE" "$USERHOME/$DEST_FILE";
+    echo "Don't forget to create password and setup your config"
     echo "DONE";
   fi;
 
