@@ -6,7 +6,7 @@ if [ "$EUID" == 0 ]; then
 fi
 
 # Basic dependencies
-sudo apt-get install -y git python3-pip tmux vim urlview wmctrl taskwarrior
+sudo apt-get install -y git python3-pip tmux vim urlview wmctrl taskwarrior scrot
 # Vundle for Vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
@@ -15,3 +15,6 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 pip3 install taskwarrior-time-tracking-hook
 mkdir -p ~/.task/hooks
 ln -s `which taskwarrior_time_tracking_hook` ~/.task/hooks/on-modify.timetracking
+
+# Screenshots directory
+mkdir -p ~/Pictures/Screenshots

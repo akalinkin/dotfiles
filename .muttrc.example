@@ -1,12 +1,12 @@
-set realname = "Alex Kalinkin"
-set from = "insider.junk@gmail.com"
+set realname = "Your name"
+set from = "<email>@gmail.com"
 set use_from = yes
 set envelope_from = yes
 
-set smtp_url = "smtps://insider.junk@gmail.com@smtp.gmail.com:465/"
+set smtp_url = "smtps://<email>@gmail.com@smtp.gmail.com:465/"
 set smtp_pass = ""
-set imap_user = "insider.junk@gmail.com"
-set imap_pass = "jvidwzugknirxddl"
+set imap_user = "<email>@gmail.com"
+set imap_pass = "<password>"
 set folder = "imaps://imap.gmail.com:993"
 set spoolfile = "+INBOX"
 set ssl_force_tls = yes

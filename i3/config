@@ -134,6 +134,9 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# Screen Shots
+# bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
+# bindsym Control+Print exec gnome-screenshot -i
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

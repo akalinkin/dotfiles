@@ -23,6 +23,7 @@ My dotfiles to share configuration between workspaces
   ln -s `which taskwarrior_time_tracking_hook` ~/.task/hooks/on-modify.timetracking
   ```
 1. Install **zsh** `sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+1. Install **scrot** `sudo apt install scrot`
 
 Run `install.sh` to create symlinks to your home folder
 
