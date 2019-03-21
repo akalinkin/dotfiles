@@ -24,6 +24,7 @@ My dotfiles to share configuration between workspaces
   ```
 1. Install **zsh** `sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 1. Install **scrot** `sudo apt install scrot`
+1. Install **lsd** [LSDeluxe](https://github.com/Peltoche/lsd) from package
 
 Run `install.sh` to create symlinks to your home folder
 

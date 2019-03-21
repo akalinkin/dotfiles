@@ -1,6 +1,8 @@
 #!/bin/sh
 
 # Aliaces file (can be used both for .bashrc or .zshrc)
+# https://github.com/Peltoche/lsd
+alias ls='lsd'
 
 #copy and move with progress bar
 alias pcp='rsync -aP'
