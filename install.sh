@@ -117,7 +117,7 @@ function linkDotfiles() {
   read -p "This action will override your \"~/$DIR\" directory (y/n) " -n 1;
   echo "";
   if [[ $REPLY =~ ^[Yy]$ ]]; then
-    echo "Removing existing \"~/$FILE\" directory";
+    echo "Removing existing \"~/$DIR\" directory";
     rm -rf "$USERHOME/$DIR";
     ln -sv "$DOTFILESDIR/$DIR" "$USERHOME/$DIR";
     echo "DONE";
@@ -128,12 +128,22 @@ function linkDotfiles() {
   read -p "This action will override your \"~/$DIR\" directory (y/n) " -n 1;
   echo "";
   if [[ $REPLY =~ ^[Yy]$ ]]; then
-    echo "Removing existing \"~/$FILE\" directory";
+    echo "Removing existing \"~/$DIR\" directory";
     rm -rf "$USERHOME/$DIR";
     ln -sv "$DOTFILESDIR/i3" "$USERHOME/$DIR";
     echo "DONE";
   fi;
 
+  # polybar  
+  DIR=".config/polybar";
+  read -p "This action will override your \"~/$DIR\" directory (y/n) " -n 1;
+  echo "";
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "Removing existing \"~/$DIR\" directory";
+    rm -rf "$USERHOME/$DIR";
+    ln -sv "$DOTFILESDIR/polybar" "$USERHOME/$DIR";
+    echo "DONE";
+  fi;
 }
 
 linkDotfiles;

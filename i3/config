@@ -31,7 +31,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+t exec i3-sensible-terminal -e tmux
+bindsym $mod+t exec i3-sensible-terminal -e tmux a
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -120,15 +120,14 @@ bindsym $mod+Shift+0 move container to workspace 10
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle # toggle mute sound
+bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle # toggle mute sound 
+# Screen brightness controls 
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness 
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness 
 
-# Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-#
-# # Touchpad controls
+# Touchpad controls
 bindsym XF86TouchpadToggle exec ~/.scripts/toggletouchpad.sh # toggle touchpad
-#
+
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
@@ -136,8 +135,9 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Screen Shots
-# bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
-# bindsym Control+Print exec gnome-screenshot -i
+bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
+bindsym $mod+Print exec scrot -zs '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
+bindsym Control+Print exec gnome-screenshot -i
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -170,7 +170,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsyh $mod+r mode "resize"
+bindsym $mod+r mode "resize"
 
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -200,3 +200,5 @@ exec --no-startup-id /usr/bin/telegram -startintray               # Telegram mes
 
 # Remove window decoration
 new_window 1pixel
+
+# vim:filetype=i3
