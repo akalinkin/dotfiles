@@ -64,9 +64,11 @@ filetype plugin on
 " Set the project directory to the Directory where Vim was started
 set path=$PWD/**
 set tabstop=4
-set nospell
+set colorcolumn=121
 
 :imap jj <Esc>
+nnoremap ; :
+"nnoremap : ;
 
 " Show hidden files in tree
 let NERDTreeShowHidden=1
@@ -105,6 +107,7 @@ highlight lCursor guifg=NONE guibg=Cyan
 
 " Set russian spell check with `ё`
 :setlocal spell spelllang=ru_yo,en_us
+set nospell
 
 " Set the type lookup function to use the preview window instead of echoing it
 "let g:OmniSharp_typeLookupInPreview = 1
