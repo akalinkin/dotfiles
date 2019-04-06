@@ -124,6 +124,11 @@ if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
 fi
 
+# VSCode fix SDK path
+if [ -f ~/.vscode_path ]; then
+  source ~/.vscode_path
+fi
+
 MPD_HOST="192.168.0.59"
 
 # Powerline (but I want to have only last catalog name in zsh promt)
