@@ -1,0 +1,2 @@
+export MSBuildSDKsPath=/usr/share/dotnet/sdk/$(dotnet --version)/Sdks
+export PATH=$MSBuildSDKsPath:$PATH

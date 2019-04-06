@@ -105,6 +105,11 @@ if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
+# VSCode fix SDK path
+if [ -f ~/.vscode_path ]; then
+	. ~/.vscode_path
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
