@@ -21,6 +21,17 @@ function linkDotfiles() {
     ln -sv "$DOTFILESDIR/$FILE" "$USERHOME/$FILE";
     echo "DONE";
   fi;
+  
+  # .vscode_path
+  FILE=".vscode_path";
+  read -p "This action will override your \"~/$FILE\" file (y/n) " -n 1;
+  echo "";
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "Removing existing \"~/$FILE\" file";
+    rm "$USERHOME/$FILE";
+    ln -sv "$DOTFILESDIR/$FILE" "$USERHOME/$FILE";
+    echo "DONE";
+  fi;
 
   # .vimrc
   FILE=".vimrc";
