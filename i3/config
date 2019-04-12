@@ -118,8 +118,8 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # Move workspaces (multymonitor config)
-bindsym $mod+Shift+h move workspace to output left
-bindsym $mod+Shift+l move workspace to output right
+#bindsym $mod+Shift+h move workspace to output left
+#bindsym $mod+Shift+l move workspace to output right
 
 # scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -199,12 +199,17 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Set wallpapper
 exec_always --no-startup-id feh --bg-scale ~/Dropbox/Images/WallPappers/1920x1080/infrared_pond-wallpaper-1920x1080.jpg
 
-# Autostart apps
+# Autostart apps in background|taskbar
 exec --no-startup-id /usr/bin/dropbox start -i                    # Dropbox
 exec --no-startup-id /usr/bin/nm-applet --sm-disable              # Network Manager
 exec --no-startup-id /usr/bin/gnome-pomodoro --no-default-window  # Pomodoro
 exec --no-startup-id /usr/bin/telegram -startintray               # Telegram messenger
+exec --no-srartup-id /usr/bin/blueman-applet					  # Bluetooth applet
+exec --no-startup-id /usr/local/bin/riot-web               		  # Riot-IM messenger
 
+# Autostart apps in workspaces
+exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/chromium'
+exec --no-startup-id i3-msg 'workspace 2; exec i3-sensible-terminal -e tmux'
 
 # Remove window decoration
 new_window 1pixel
