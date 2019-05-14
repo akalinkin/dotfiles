@@ -65,6 +65,7 @@ filetype plugin on
 set path=$PWD/**
 set tabstop=4
 set colorcolumn=121
+set wildmenu
 
 :imap jj <Esc>
 nnoremap ; :
@@ -193,3 +194,6 @@ nnoremap <Leader>th :OmniSharpHighlightTypes<CR>
 python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
 python3 del powerline_setup
+
+" Snippets
+nnoremap ,html :-1read $HOME/.vim/snippets/.blank.html<CR>5jf>a
