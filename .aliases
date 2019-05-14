@@ -37,6 +37,9 @@ alias z="zen"
 alias t="task"
 
 
+# Notificatios
+alias beep="echo -ne '\007'"
+
 # Docker pretty output
 alias dockps='docker ps --format="table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"'
 alias dockpsa='docker ps -a --format="table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"'
