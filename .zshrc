@@ -135,3 +135,14 @@ MPD_HOST="192.168.0.59"
 # . /home/alex/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 
 bindkey -M vicmd v edit-command-line
+
+# COMPLETION SETTINGS
+# add custom completion scripts
+fpath=(~/.zsh/completion $fpath) 
+#  
+# compsys initialization
+autoload -U compinit
+compinit
+ 
+# show completion menu when number of options is at least 2
+zstyle ':completion:*' menu select=2

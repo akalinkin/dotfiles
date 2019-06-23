@@ -37,6 +37,9 @@ alias z="zen"
 alias t="task"
 
 
+# Notificatios
+alias beep="echo -ne '\007'"
+
 # Docker pretty output
 alias dockps='docker ps --format="table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"'
 alias dockpsa='docker ps -a --format="table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"'
@@ -48,3 +51,7 @@ alias ssh-tor='torsocks ssh'
 
 # Hardware
 alias battery='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
+
+# Other
+alias weather='curl wttr.in'
+
