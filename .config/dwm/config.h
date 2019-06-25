@@ -76,6 +76,18 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "gnome-terminal", "--hide-menubar", NULL };
 static const char *chromiumcmd[]  = { "chromium", NULL };
 
+// Change sound
+static const char *upVolume5pre[]      = { "amixer", "set", "Master", "5%+", NULL };
+// static const char *upVolume2pre[]      = { "amixer", "set", "Master", "2%+", NULL };
+static const char *downVolume5pre[]    = { "amixer", "set", "Master", "5%-", NULL };
+// static const char *downVolume2pre[]    = { "amixer", "set", "Master", "2%-", NULL };
+static const char *toggleVolume[]      = { "amixer", "set", "Master", "toggle", NULL }; // for debian
+// static const char *toggleVolume[]  = { "amixer", "-D", "pulse", "set", "Master", "1+", "toggle", NULL }; // for ubuntu
+// // static const char *upVolume[]      = { "amixer", "-D", "pulse", "sset", "Master", "5%+", NULL }; // for ubuntu
+// // static const char *downVolume[]    = { "amixer", "-D", "pulse", "sset", "Master", "5%-", NULL }; // for ubuntu
+// // static const char *toggleVolume[]  = { "amixer", "-D", "pulse", "sset", "Master", "toggle", NULL }; // for ubuntu
+//
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
@@ -102,7 +114,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	TAGKEYS(                        XK_1,                      0)
+	{ MODKEY,                       XK_F12,	   spawn,	       {.v = upVolume5pre } },
+    { MODKEY,                   	XK_F11,	   spawn,	       {.v = downVolume5pre } },
+    { MODKEY,                   	XK_F10,	   spawn,	       {.v = toggleVolume } },
+    TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
