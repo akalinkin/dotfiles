@@ -5,7 +5,7 @@ My dotfiles to share configuration between workspaces
 ## Prerequisites
 
 1. Update sources `sudo apt update`
-1. Install dependencies `sudo apt install curl libnotify-bin xinput git tmux vim vim-gnome vim-gtk urlview wmctrl taskwarrior python3-pip scrot`
+1. Install dependencies `sudo apt install curl libnotify-bin xinput git tmux vim vim-gnome vim-gtk urlview wmctrl taskwarrior python3-pip scrot nitrogen`
 1. Install **tpm** `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 1. Install **Vundle** `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 1. Download Russian language spell file `mkdir -p ~/.vim/spell && curl -o ~/.vim/spell/ru.utf-8.spl ftp://ftp.vim.org/pub/vim/runtime/spell/ru.utf-8.spl`
