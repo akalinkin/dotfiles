@@ -5,7 +5,7 @@ static const unsigned int borderpx  		= 1;        /* border pixel of windows */
 static const unsigned int snap      		= 32;       /* snap pixel */
 static const int showbar            		= 1;        /* 0 means no bar */
 static const int topbar             		= 1;        /* 0 means bottom bar */
-static const unsigned int systraypinning 	= 0;	/* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systraypinning 	= 1;	/* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing 	= 2;	/* systray spacing */
 static const int systraypinningfailfirst 	= 1;	/* 1: if pinning fails, display systray on the first monitor, 0: display systray on the last monitor*/
 static const int showsystray 				= 1;		/* 0 means no systray */
@@ -24,9 +24,10 @@ static const char *colors[][3]      = {
 static const char *fonts[] = {
 	"monospace:size=12",
 	"Terminus:size=12",
-	"FontAwesome:size=12"
+	"FontAwesome:size=12",
+	"RobotoMono Nerd Font Mono:size=12"
 };
-static const char dmenufont[]       = "monospace:size=12";
+static const char dmenufont[]       = "RobotoMono Nerd Font Mono:size=10";
 static const char normbordercolor[] = "#282c34"; // Цвет рамки неактивного окна
 static const char normbgcolor[]     = "#1c1f25"; // Цвет не выделенного фона панели
 static const char normfgcolor[]     = "#bbbbbb"; // Цвет не выделенного текста
@@ -47,6 +48,7 @@ static const Rule rules[] = {
 	{ "Nautilus", 		NULL,       NULL,       1 << 9,       0,           0 },
 	{ "Gimp",           NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",        NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Telegram",       NULL,       NULL,       1 << 8,       0,           0 },
 	{ "Chromium",       NULL,       NULL,       1 << 9,       0,           1 },
 };
 
@@ -57,8 +59,8 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "",      tile },    /* first entry is default */
+	{ "",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
@@ -85,15 +87,12 @@ static const char *nautiluscmd[]  = { "nautilus", NULL };
 
 // Change sound
 static const char *upVolume5pre[]      = { "amixer", "set", "Master", "5%+", NULL };
-// static const char *upVolume2pre[]      = { "amixer", "set", "Master", "2%+", NULL };
 static const char *downVolume5pre[]    = { "amixer", "set", "Master", "5%-", NULL };
-// static const char *downVolume2pre[]    = { "amixer", "set", "Master", "2%-", NULL };
 static const char *toggleVolume[]      = { "amixer", "set", "Master", "toggle", NULL }; // for debian
 // static const char *toggleVolume[]  = { "amixer", "-D", "pulse", "set", "Master", "1+", "toggle", NULL }; // for ubuntu
 // // static const char *upVolume[]      = { "amixer", "-D", "pulse", "sset", "Master", "5%+", NULL }; // for ubuntu
 // // static const char *downVolume[]    = { "amixer", "-D", "pulse", "sset", "Master", "5%-", NULL }; // for ubuntu
 // // static const char *toggleVolume[]  = { "amixer", "-D", "pulse", "sset", "Master", "toggle", NULL }; // for ubuntu
-//
 
 /* mbp-mappings */
 #define XF86AudioMute			0x1008ff12
