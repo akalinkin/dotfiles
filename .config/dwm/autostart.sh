@@ -5,17 +5,17 @@
 #
 # Starts the programs after you are logged in
 
-
 nitrogen --restore &
 dropbox start &
+telegram &
 
 dte(){
-  dte="$(date +"%a, %b %d | %l:%M%p")"
-  echo -e "$dte \ue77d" # 
+  dte="$(date +"%a, %b %d \ue77d %H:%M")"
+  echo -e "$dte"
 }
 
 mem(){
-  mem=`free | awk '/Mem/ {printf "%d/%d\n", $3 / 1024.0, $2 / 1024.0 }'`
+  mem=`free | awk '/Mem/ {printf "%d/%d\n", $3 / 1024.0 / 1024.0 , $2 / 1024.0 / 1024.0 }'`
   echo -e "\uf85a $mem"
 }
 
@@ -26,11 +26,26 @@ cpu(){
   read cpu a b c idle rest < /proc/stat
   total=$((a+b+c+idle))
   cpu=$((100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
-  echo -e "\ue266 $cpu%"
+  temp=`sensors | grep Physical | cut -d " " -f 5`
+  echo -e "\ue266 $cpu% $temp"
+}
+
+bat(){
+  BATTINFO=`acpi -b`
+  status="\uf590" # unknown
+  if [[ `echo $BATTINFO | grep Discharging` ]]; then
+    status="\uf578"
+  fi
+  if [[ `echo $BATTINFO | grep Charging` ]]; then
+    status="\uf583"
+  fi
+  pers=`acpi -b | cut -d "," -f 2 | sed -e 's/^[[:space:]]*//'`
+
+  echo -e "$status $pers"
 }
 
 while true; do
-     xsetroot -name "$(cpu) | $(mem) | $(dte)"
+     xsetroot -name "$(bat) | $(cpu) | $(mem) | $(dte)"
      sleep 10s    # Update time every ten seconds
 done &
 
