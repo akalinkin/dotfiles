@@ -26,11 +26,13 @@ cpu(){
   read cpu a b c idle rest < /proc/stat
   total=$((a+b+c+idle))
   cpu=$((100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
-  temp=`sensors | grep Physical | cut -d " " -f 5`
+  temp=`sensors | grep "Physical\|Package" | cut -d " " -f 5`
   echo -e "\ue266 $cpu% $temp"
 }
 
 bat(){
+  battery=`upower -e | grep BAT`
+  [[ -z "$bat" ]] && return
   BATTINFO=`acpi -b`
   status="\uf590" # unknown
   if [[ `echo $BATTINFO | grep Discharging` ]]; then
