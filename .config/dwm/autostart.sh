@@ -32,7 +32,7 @@ cpu(){
 
 bat(){
   battery=`upower -e | grep BAT`
-  [[ -z "$bat" ]] && return
+  [[ -z "$battery" ]] && return
   BATTINFO=`acpi -b`
   status="\uf590" # unknown
   if [[ `echo $BATTINFO | grep Discharging` ]]; then
