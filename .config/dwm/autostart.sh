@@ -55,8 +55,14 @@ dockerinfo(){
   echo -e "$status"
 }
 
+crypto-btc-usd(){
+  result=`/home/alex/.scripts/exchange_rate_btc_usd.sh`
+
+  echo -e "\uf15a $result"
+}
+
 while true; do
-     xsetroot -name "$(dockerinfo) | $(bat) | $(cpu) | $(mem) | $(dte)"
+     xsetroot -name "$(crypto-btc-usd) | $(dockerinfo) | $(bat) | $(cpu) | $(mem) | $(dte)"
      sleep 10s    # Update time every ten seconds
 done &
 
