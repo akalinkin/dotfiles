@@ -1,7 +1,6 @@
 #!/bin/bash
 #
 # autostart.sh
-# chmod 775
 #
 # Starts the programs after you are logged in
 
@@ -32,7 +31,7 @@ cpu(){
 
 bat(){
   battery=`upower -e | grep BAT`
-  [[ -z "$battery" ]] && return
+  [[ -z "$battery" ]] && echo -e "\uf1e6" && return
   BATTINFO=`acpi -b`
   status="\uf590" # unknown
   if [[ `echo $BATTINFO | grep Discharging` ]]; then
@@ -46,8 +45,18 @@ bat(){
   echo -e "$status $pers"
 }
 
+dockerinfo(){
+  status="\uf308 ?"
+  if hash docker 2>/dev/null; then
+    count=`docker ps -q | wc -l `
+    status="\uf308 $count"
+  fi
+
+  echo -e "$status"
+}
+
 while true; do
-     xsetroot -name "$(bat) | $(cpu) | $(mem) | $(dte)"
+     xsetroot -name "$(dockerinfo) | $(bat) | $(cpu) | $(mem) | $(dte)"
      sleep 10s    # Update time every ten seconds
 done &
 
