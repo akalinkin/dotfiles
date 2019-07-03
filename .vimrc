@@ -24,10 +24,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 " Use Git allways use Git (highlights source changes)
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
-" File tree
 Plugin 'scrooloose/nerdtree'
-" Git marks in NERDTree
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Markdown syntax highlighting
 Plugin 'godlygeek/tabular'
