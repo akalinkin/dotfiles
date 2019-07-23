@@ -61,8 +61,14 @@ crypto-btc-usd(){
   echo -e "\uf15a $result"
 }
 
+taskwarrior(){
+  result=`task status:pending count`
+
+  echo -e "\uf0ae $result"
+}
+
 while true; do
-     xsetroot -name "$(crypto-btc-usd) | $(dockerinfo) | $(bat) | $(cpu) | $(mem) | $(dte)"
+     xsetroot -name "$(taskwarrior) | $(crypto-btc-usd) | $(dockerinfo) | $(bat) | $(cpu) | $(mem) | $(dte)"
      sleep 10s    # Update time every ten seconds
 done &
 
