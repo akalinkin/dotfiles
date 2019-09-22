@@ -4,6 +4,8 @@
 # https://github.com/Peltoche/lsd
 alias ls='lsd'
 
+alias s='ssh'
+
 #copy and move with progress bar
 alias pcp='rsync -aP'
 alias pmv='rsync -aP --remove-source-files'
