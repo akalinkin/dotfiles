@@ -109,6 +109,16 @@ highlight lCursor guifg=NONE guibg=Cyan
 :setlocal spell spelllang=ru_yo,en_us
 set nospell
 
+" Change cursor to block and beam
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+" Reset cursor on start (required if your term has changed cursor)
+augroup myCmds
+au!
+autocmd VimEnter * silent !echo -ne "\e[2 q"
+augroup END
+
 " Set the type lookup function to use the preview window instead of echoing it
 "let g:OmniSharp_typeLookupInPreview = 1
 
