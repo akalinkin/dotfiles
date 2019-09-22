@@ -183,3 +183,5 @@ compinit
  
 # show completion menu when number of options is at least 2
 zstyle ':completion:*' menu select=2
+
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
