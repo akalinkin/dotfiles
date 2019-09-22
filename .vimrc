@@ -23,19 +23,18 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-" Use Git allways use Git (highlights source changes)
+
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
+Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'prabirshrestha/async.vim'
+Plugin 'SirVer/ultisnips'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-" Markdown syntax highlighting
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-" vimwiki
 Plugin 'vimwiki/vimwiki'
-" Ctrl-P
 Plugin 'ctrlpvim/ctrlp.vim'
-
-" c#
+Plugin 'dense-analysis/ale'
 Bundle 'OmniSharp/omnisharp-vim'
 " Solidity language (Ethereum smart contracts)
 "Plugin 'tomlion/vim-solidity'
@@ -125,15 +124,35 @@ augroup END
 
 " Set the type lookup function to use the preview window instead of echoing it
 "let g:OmniSharp_typeLookupInPreview = 1
+"let g:OmniSharp_server_stdio = 1
+"let g:OmniSharp_loglevel = 'debug'
 
 " Timeout in seconds to wait for a response from the server
 let g:OmniSharp_timeout = 5
+" Highlight types
+let g:OmniSharp_highlight_types = 2
 
 " Don't autoselect first omnicomplete option, show options even if there is
 " only
 " one (so the preview documentation is accessible). Remove 'preview' if you
 " don't want to see any documentation whatsoever.
-set completeopt=longest,menuone,preview
+"set completeopt=longest,menuone,preview
+set completeopt=menuone,noinsert,noselect,preview
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_auto_completeopt = 0
+let g:asyncomplete_force_refresh_on_context_changed = 1
+
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+
+let g:UltiSnipsRemoveSelectModeMappings = 0
+let g:UltiSnipsExpandTrigger = "<C-l>"
+"let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+let g:OmniSharp_want_snippet = 1
 
 " Fetch full documentation during omnicomplete requests.
 " There is a performance penalty with this (especially on Mono).
