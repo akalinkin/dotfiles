@@ -24,7 +24,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 " Use Git allways use Git (highlights source changes)
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -33,11 +32,14 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 " vimwiki
 Plugin 'vimwiki/vimwiki'
+" Ctrl-P
+Plugin 'ctrlpvim/ctrlp.vim'
+
 " c#
 Bundle 'OmniSharp/omnisharp-vim'
 " Solidity language (Ethereum smart contracts)
-Plugin 'tomlion/vim-solidity'
-Plugin 'editorconfig/editorconfig-vim'
+"Plugin 'tomlion/vim-solidity'
+"Plugin 'editorconfig/editorconfig-vim'
 
 " Presentaion mode
 Plugin 'sotte/presenting.vim'
@@ -98,6 +100,8 @@ au BufEnter *.sol set sw=4 ts=4 et
 if has("syntax")
    syntax on
 endif
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " Set russian input in Vim using `Ctrl+^`
 set keymap=russian-jcukenwin
