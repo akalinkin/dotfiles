@@ -122,9 +122,13 @@ au!
 autocmd VimEnter * silent !echo -ne "\e[2 q"
 augroup END
 
+" In the quickfix window, <CR> is used to jump to the error under the
+" cursor, so undefine the mapping there.
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+
 " Set the type lookup function to use the preview window instead of echoing it
-"let g:OmniSharp_typeLookupInPreview = 1
-"let g:OmniSharp_server_stdio = 1
+let g:OmniSharp_typeLookupInPreview = 1
+let g:OmniSharp_server_stdio = 1
 "let g:OmniSharp_loglevel = 'debug'
 
 " Timeout in seconds to wait for a response from the server
@@ -152,6 +156,7 @@ let g:UltiSnipsExpandTrigger = "<C-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+" Enable snippet completion
 let g:OmniSharp_want_snippet = 1
 
 " Fetch full documentation during omnicomplete requests.
@@ -219,8 +224,6 @@ nnoremap <Leader>sp :OmniSharpStopServer<CR>
 " Add syntax highlighting for types and interfaces
 nnoremap <Leader>th :OmniSharpHighlightTypes<CR>
 
-" Enable snippet completion
-" let g:OmniSharp_want_snippet=1
 
 
 python3 from powerline.vim import setup as powerline_setup
