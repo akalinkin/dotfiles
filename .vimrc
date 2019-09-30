@@ -15,6 +15,11 @@ set ruler                      " show line and col position
 set nofoldenable               " disable folding
 set wildmode=longest,list,full " autocomplete stuff
 
+" Persistant undo (saves buffer edit history between sessions)
+" Make sure the directory exists
+set undodir=~/.vim/undodir
+set undofile
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
