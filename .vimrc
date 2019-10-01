@@ -118,9 +118,10 @@ highlight lCursor guifg=NONE guibg=Cyan
 :setlocal spell spelllang=ru_yo,en_us
 set nospell
 
-" Change cursor to block and beam
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
+" Change cursor to: block (NORMAL), beam(INSERT), block underscore(REPLACE)
+let &t_SI = "\e[6 q" 	"SI = INSERT mode
+let &t_SR = "\e[4 q" 	"SR = REPLACE mode
+let &t_EI = "\e[2 q"	"EI = NORMAL mode (ELSE)
 
 " Reset cursor on start (required if your term has changed cursor)
 augroup myCmds
