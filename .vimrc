@@ -14,6 +14,7 @@ set ruler                      " show line and col position
 "set foldmethod=manual	       " allow manual folding
 set nofoldenable               " disable folding
 set wildmode=longest,list,full " autocomplete stuff
+set termguicolors			   " enablre true color
 
 " Persistant undo (saves buffer edit history between sessions)
 " Make sure the directory exists
