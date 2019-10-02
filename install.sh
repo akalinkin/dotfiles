@@ -21,7 +21,7 @@ function linkDotfiles() {
     ln -sv "$DOTFILESDIR/$FILE" "$USERHOME/$FILE";
     echo "DONE";
   fi;
-  
+
   # .vscode_path
   FILE=".vscode_path";
   read -p "This action will override your \"~/$FILE\" file (y/n) " -n 1;
@@ -145,6 +145,28 @@ function linkDotfiles() {
     echo "DONE";
   fi;
 
+  # compton folder
+  DIR=".config/compton";
+  read -p "This action will override your \"~/$DIR\" directory (y/n) " -n 1;
+  echo "";
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "Removing existing \"~/$DIR\" directory";
+    rm -rf "$USERHOME/$DIR";a
+    ln -sv "$DOTFILESDIR/$DIR" "$USERHOME/$DIR";
+    echo "DONE";
+  fi;
+  
+  # conlky folder
+  DIR=".config/conky";
+  read -p "This action will override your \"~/$DIR\" directory (y/n) " -n 1;
+  echo "";
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "Removing existing \"~/$DIR\" directory";
+    rm -rf "$USERHOME/$DIR";a
+    ln -sv "$DOTFILESDIR/$DIR" "$USERHOME/$DIR";
+    echo "DONE";
+  fi;
+  
   # polybar  
   DIR=".config/polybar";
   read -p "This action will override your \"~/$DIR\" directory (y/n) " -n 1;
