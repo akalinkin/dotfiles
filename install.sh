@@ -144,6 +144,17 @@ function linkDotfiles() {
     ln -sv "$DOTFILESDIR/i3" "$USERHOME/$DIR";
     echo "DONE";
   fi;
+  
+  # DWM folder
+  DIR=".dwm";
+  read -p "This action will override your \"~/$DIR\" directory (y/n) " -n 1;
+  echo "";
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "Removing existing \"~/$DIR\" directory";
+    rm -rf "$USERHOME/$DIR";
+    ln -sv "$DOTFILESDIR/.config/dwm" "$USERHOME/$DIR";
+    echo "DONE";
+  fi;
 
   # compton folder
   DIR=".config/compton";
