@@ -1,16 +1,21 @@
-#!/bin/bash
+#!/bin/bash 
 #
 # autostart.sh
 #
 # Starts the programs after you are logged in
 
+/usr/bin/compton --config /home/alex/.config/compton/compton.conf -b
 nitrogen --restore &
+conky &
+
 dropbox start &
 telegram &
+gnome-pomodoro --no-default-window &
+upwork &
 
 dte(){
   dte="$(date +"%a, %b %d \ue77d %H:%M")"
-  echo -e "$dte"
+  echo -e "\ufa19 $dte"
 }
 
 mem(){
@@ -64,11 +69,11 @@ crypto-btc-usd(){
 taskwarrior(){
   result=`task status:pending count`
 
-  echo -e "\uf0ae $result"
+  echo -e "\uf4a0 $result"
 }
 
 while true; do
-     xsetroot -name "$(taskwarrior) | $(crypto-btc-usd) | $(dockerinfo) | $(bat) | $(cpu) | $(mem) | $(dte)"
+     xsetroot -name "$(taskwarrior) $(crypto-btc-usd) $(dockerinfo) $(bat)  $(dte)"
      sleep 10s    # Update time every ten seconds
 done &
 
