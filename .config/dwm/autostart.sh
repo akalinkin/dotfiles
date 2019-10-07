@@ -48,7 +48,7 @@ bat(){
   fi
   pers=`acpi -b | cut -d "," -f 2 | sed -e 's/^[[:space:]]*//'`
 
-  if [[ "$status" != "\uf590" ]]; then
+  if [[ "$status" == "\uf590" ]]; then
   	echo -e "$status $pers"
   fi
 }
