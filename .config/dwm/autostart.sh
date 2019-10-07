@@ -47,7 +47,9 @@ bat(){
   fi
   pers=`acpi -b | cut -d "," -f 2 | sed -e 's/^[[:space:]]*//'`
 
-  echo -e "$status $pers"
+  if [[ "$status" != "\uf590" ]]; then
+  	echo -e "$status $pers"
+  fi
 }
 
 dockerinfo(){
