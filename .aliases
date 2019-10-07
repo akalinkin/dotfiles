@@ -58,4 +58,5 @@ alias battery='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|
 alias weather='curl wttr.in'
 
 # Development
+alias c="code"
 alias dn='dotnet'
