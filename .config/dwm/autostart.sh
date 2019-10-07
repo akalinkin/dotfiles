@@ -9,6 +9,7 @@ nitrogen --restore &
 conky &
 
 dropbox start &
+nextcloud &
 telegram &
 gnome-pomodoro --no-default-window &
 upwork &
