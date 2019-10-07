@@ -37,7 +37,7 @@ cpu(){
 
 bat(){
   battery=`upower -e | grep BAT`
-  [[ -z "$battery" ]] && echo -e "\uf1e6" && return
+  [[ -z "$battery" ]] && return # echo -e "\uf1e6" && 
   BATTINFO=`acpi -b`
   status="\uf590" # unknown
   if [[ `echo $BATTINFO | grep Discharging` ]]; then
@@ -48,9 +48,7 @@ bat(){
   fi
   pers=`acpi -b | cut -d "," -f 2 | sed -e 's/^[[:space:]]*//'`
 
-  if [[ "$status" == "\uf590" ]]; then
-  	echo -e "$status $pers"
-  fi
+  echo -e "$status $pers"
 }
 
 dockerinfo(){
