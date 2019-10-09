@@ -47,6 +47,7 @@ alias dockps='docker ps --format="table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Nam
 alias dockpsa='docker ps -a --format="table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"'
 alias dockports='docker ps --format="table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Ports}}"'
 alias dockportsa='docker ps -a --format="table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Ports}}"'
+alias dockc='docker-compose'
 
 # Connections
 alias ssh-tor='torsocks ssh'
