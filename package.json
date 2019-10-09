@@ -1,0 +1,33 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "description": "dotfiles to keep settings in one place cross workspaces/devices",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akalinkin/dotfiles.git"
+  },
+  "keywords": [
+    "dotfiles",
+    "linux",
+    "settings"
+  ],
+  "author": "alex@kalinkin.info",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akalinkin/dotfiles/issues"
+  },
+  "homepage": "https://github.com/akalinkin/dotfiles#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

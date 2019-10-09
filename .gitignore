@@ -1,3 +1,4 @@
+node_modules
 .scripts/.zenmodestatus
 .scripts/.webcammpvstatus
 on-modify.timetracking
