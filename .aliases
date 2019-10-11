@@ -21,6 +21,9 @@ alias volumedown="amixer set Master 10%-"
 alias gcd="git checkout develop"
 alias gpod="git pull origin develop"
 
+# Git bare for dotfiles
+alias dotconf='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
 # Vim
 alias v="vim"
 alias vcfv="vim ~/.vimrc"
