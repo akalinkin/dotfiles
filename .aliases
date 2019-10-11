@@ -1,0 +1,63 @@
+#!/bin/sh
+
+# Aliaces file (can be used both for .bashrc or .zshrc)
+# https://github.com/Peltoche/lsd
+alias ls='lsd'
+
+alias s='ssh'
+
+#copy and move with progress bar
+alias pcp='rsync -aP'
+alias pmv='rsync -aP --remove-source-files'
+
+# System
+alias shutdown="sudo shutdown -h 0"
+alias suspend="sudo systemctl suspend"
+alias sysupgrade="sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get clean && sudo apt-get autoremove"
+alias volumeup="amixer set Master 10%+"
+alias volumedown="amixer set Master 10%-"
+
+# Git
+alias gcd="git checkout develop"
+alias gpod="git pull origin develop"
+
+# Vim
+alias v="vim"
+alias vcfv="vim ~/.vimrc"
+alias vcfb="vim ~/.bashrc"
+alias vcfz="vim ~/.zshrc"
+alias vcft="vim ~/.tmux.conf"
+
+# Screencast
+alias webcammpv="/bin/bash ~/.scripts/webcammpv.sh"
+
+# PowerUser
+alias zen="/bin/bash ~/.scripts/zenmode.sh"
+alias z="zen"
+
+# Task management
+alias t="task"
+
+
+# Notificatios
+alias beep="echo -ne '\007'"
+
+# Docker pretty output
+alias dockps='docker ps --format="table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"'
+alias dockpsa='docker ps -a --format="table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"'
+alias dockports='docker ps --format="table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Ports}}"'
+alias dockportsa='docker ps -a --format="table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Ports}}"'
+alias dockc='docker-compose'
+
+# Connections
+alias ssh-tor='torsocks ssh'
+
+# Hardware
+alias battery='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
+
+# Other
+alias weather='curl wttr.in'
+
+# Development
+alias c="code"
+alias dn='dotnet'
