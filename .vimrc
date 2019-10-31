@@ -14,7 +14,14 @@ set ruler                      " show line and col position
 "set foldmethod=manual	       " allow manual folding
 set nofoldenable               " disable folding
 set wildmode=longest,list,full " autocomplete stuff
-set termguicolors			   " enablre true color
+
+set termguicolors              " enable true color
+" some vim in tmux fixes
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set background=dark
+set t_Co=256
+
 
 " Persistant undo (saves buffer edit history between sessions)
 " Make sure the directory exists
