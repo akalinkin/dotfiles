@@ -1,0 +1,24 @@
+
+Config { 
+       font = "xft:terminus:size=12"
+       , additionalFonts = []
+       , bgColor = "black"
+       , fgColor = "grey"
+       , alpha = 100
+       , position = Top
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = True
+       , hideOnStart = False
+       , iconRoot = "."
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [ 
+					Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{"
+       }

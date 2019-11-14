@@ -70,8 +70,8 @@ myTextEditor = "vim"
 
 main = do
     -- Launching xmobars
-    xmproc1 <- spawnPipe "xmobar -x 0 /home/alex/.config/xmobar/xmobarrc0"
-    -- xmproc2 <- spawnPipe "xmobar -x 1 /home/alex/.config/xmobar/xmobarrc1"
+    xmproc0 <- spawnPipe "xmobar -x 0 /home/alex/.config/xmobar/xmobarrc0"
+    xmproc1 <- spawnPipe "xmobar -x 1 /home/alex/.config/xmobar/xmobarrc1"
 
     xmonad $ ewmh desktopConfig
         { manageHook = ( isFullscreen --> doFullFloat ) <+> myManageHook <+> manageHook desktopConfig <+> manageDocks
@@ -84,7 +84,7 @@ main = do
         , startupHook           = myStartupHook
         , layoutHook            = myLayoutHook 
         , logHook               = dynamicLogWithPP xmobarPP
-                        { ppOutput = \x -> hPutStrLn xmproc1 x -- >> hPutStrLn xmproc1 x  >> hPutStrLn xmproc2 x
+                        { ppOutput = \x -> hPutStrLn xmproc0 x >> hPutStrLn xmproc1 x --  >> hPutStrLn xmproc2 x
                         , ppCurrent = xmobarColor "#F9EE98" "" . wrap "[" "]" -- Current workspace in xmobar
                         , ppVisible = xmobarColor "#c3e88d" ""                -- Visible but not current workspace
                         , ppHidden = xmobarColor "#7587A6" "" . wrap "" "*"   -- Hidden workspaces in xmobar
@@ -195,14 +195,27 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
 
 
 myStartupHook = do
+    spawnOnce "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --widthtype pixel --width 200 --transparent true --alpha 100 --tint 0x000000 --height 20 --monitor 0 &"
     spawnOnce "nitrogen --restore &"
     spawnOnce "compton --config /home/alex/.config/compton/compton.conf &"
     spawnOnce "conky &"
     spawnOnce "telegram &"
+    spawnOnce "dropbox start &"
     setWMName "LG3D"
 
 myKeys = --- Xmonad
         [ ("M-C-r", spawn "xmonad --recompile")      -- Recompiles xmonad
         , ("M-S-r", spawn "xmonad --restart")        -- Restarts xmonad
         , ("M-S-q", io exitSuccess)                  -- Quits xmonad
+
+        --- Scratchpads
+        , ("M-C-<Return>", namedScratchpadAction myScratchPads "terminal")
+        , ("M-C-c", namedScratchpadAction myScratchPads "cmus")
+
+        --- DMenu
+        , ("M-d", spawn "dmenu_run -p 'run:'")
+
+        --- Open Terminal
+        , ("M-<Return>", spawn myTerminal)
+
         ]
