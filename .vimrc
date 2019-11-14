@@ -51,6 +51,7 @@ Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'dense-analysis/ale'
 Bundle 'OmniSharp/omnisharp-vim'
+Plugin 'fatih/vim-go'
 " Solidity language (Ethereum smart contracts)
 "Plugin 'tomlion/vim-solidity'
 "Plugin 'editorconfig/editorconfig-vim'
