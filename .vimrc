@@ -12,7 +12,7 @@ set number relativenumber      " show line numbers and relative numbers (offsets
 set laststatus=2               " allways show status line
 set ruler                      " show line and col position
 "set foldmethod=manual	       " allow manual folding
-set nofoldenable               " disable folding
+"set nofoldenable               " disable folding
 set wildmode=longest,list,full " autocomplete stuff
 
 set termguicolors              " enable true color
@@ -80,8 +80,11 @@ filetype plugin on
 " Set the project directory to the Directory where Vim was started
 set path=$PWD/**
 set tabstop=4
-set colorcolumn=121
 set wildmenu
+
+" Color column to see 100 (soft limit) 120 (hard limit)
+set colorcolumn=101 ",121
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 :imap jj <Esc>
 nnoremap ; :
@@ -161,7 +164,7 @@ augroup END
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
 " Set the type lookup function to use the preview window instead of echoing it
-let g:OmniSharp_typeLookupInPreview = 1
+let g:OmniSharp_typeLookupInPreview = 0
 let g:OmniSharp_server_stdio = 1
 "let g:OmniSharp_loglevel = 'debug'
 
