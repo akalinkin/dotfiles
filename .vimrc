@@ -19,9 +19,7 @@ set termguicolors              " enable true color
 " some vim in tmux fixes
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-set background=dark
 set t_Co=256
-
 
 " Persistant undo (saves buffer edit history between sessions)
 " Make sure the directory exists
@@ -52,17 +50,34 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'dense-analysis/ale'
 Bundle 'OmniSharp/omnisharp-vim'
 Plugin 'fatih/vim-go'
+
 " Solidity language (Ethereum smart contracts)
 "Plugin 'tomlion/vim-solidity'
+
 "Plugin 'editorconfig/editorconfig-vim'
 
 " Presentaion mode
 Plugin 'sotte/presenting.vim'
 
-" Powerline
-Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Themes
+Plugin 'dracula/vim', { 'name': 'dracula' }
+Plugin 'lifepillar/vim-solarized8'
+
+" Airline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+set background=dark 
+colorscheme solarized8
+
 " filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 " OmniSharp won't work without this setting
@@ -139,10 +154,10 @@ endif
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " Set russian input in Vim using `Ctrl+^`
-set keymap=russian-jcukenwin
-set iminsert=0
-set imsearch=0
-highlight lCursor guifg=NONE guibg=Cyan
+"set keymap=russian-jcukenwin
+"set iminsert=0
+"set imsearch=0
+"highlight lCursor guifg=NONE guibg=Cyan
 
 " Set russian spell check with `ё`
 :setlocal spell spelllang=ru_yo,en_us
@@ -260,12 +275,6 @@ nnoremap <Leader>sp :OmniSharpStopServer<CR>
 
 " Add syntax highlighting for types and interfaces
 nnoremap <Leader>th :OmniSharpHighlightTypes<CR>
-
-
-
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
 
 " Snippets
 nnoremap ,html :-1read $HOME/.vim/snippets/.blank.html<CR>5jf>a
