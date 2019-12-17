@@ -1,7 +1,7 @@
 
 Config { 
-       font = "xft:terminus:size=12"
-       , additionalFonts = []
+       font = "xft:terminus:size=12" 
+       , additionalFonts = [ "xft:Font Awesome 5 Brands:pixelsize=14:antialias=true:hinting=true", "xft:Font Awesome 5 Free Solid:pixelsize=14:antialias=true:hinting=true" ]
        , bgColor = "black"
        , fgColor = "grey"
        , alpha = 100
@@ -15,26 +15,30 @@ Config {
        , iconRoot = "."
        , allDesktops = True
        , overrideRedirect = True
-       , commands = [ 
-					Run Com "/bin/bash" ["-c", "echo ${USER}@`hostname`"] "userAtHost" 1000,
+       , commands = [ Run StdinReader
+					, Run Com "/bin/bash" ["-c", "echo ${USER}@`hostname`"] "userAtHost" 1000
 					
 					-- Battery information. This is likely to require some customization
 					-- based upon your specific hardware. Or, for a desktop you may want
 					-- to just remove this section entirely.
-					-- Run Battery [
-					--	"-t", "<acstatus>: <left>% - <timeleft>",
-					--	"--",
-					--	--"-c", "charge_full",
-					--	"-O", "AC",
-					--	"-o", "Bat",
-					--	"-h", "green",
-					--	"-l", "red"
-					--	] 10,
+					, Run Battery [
+					"-t", "<acstatus> <left>%",
+					"--",
+					--"-c", "charge_full",
+					"-O", "<fn=2>\xf1e6</fn>",
+					"-o", "<fn=2>\xf242</fn>",
+					"-h", "green",
+					"-l", "red"
+					] 10
 
-					Run StdinReader
+					, Run Date "%A:   %B %d, %Y  %H:%M" "date" 10
+					, Run Com "/bin/bash" ["-c", "echo -e '<fn=2>\xf0ae</fn>' `task status:pending count`"] "tasks" 60
+					, Run Com "/bin/bash" ["-c", "echo -e '<fn=1>\xf395</fn> ' `docker ps -q | wc -l`"] "docker" 60
                     ]
        , sepChar = "%"
        , alignSep = "}{"
        , template = "%StdinReader% }\
-					\{ %userAtHost% "
+					\{ / %docker% / %tasks% / %date% / %battery% / %userAtHost% /  "
        }
+
+-- vim: ft=haskell:foldmethod=marker:expandtab:ts=4:shiftwidth=4
