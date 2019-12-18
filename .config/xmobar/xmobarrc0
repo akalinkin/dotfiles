@@ -1,7 +1,10 @@
 
 Config { 
-       font = "xft:terminus:size=12" 
-       , additionalFonts = [ "xft:Font Awesome 5 Brands:pixelsize=14:antialias=true:hinting=true", "xft:Font Awesome 5 Free Solid:pixelsize=14:antialias=true:hinting=true" ]
+       font = "xft:terminus:size=12" -- [0] font
+       , additionalFonts = [ 
+            "xft:Font Awesome 5 Brands:pixelsize=14:antialias=true:hinting=true", -- [1] font 
+            "xft:Font Awesome 5 Free Solid:pixelsize=14:antialias=true:hinting=true" -- [2] font
+       ]
        , bgColor = "black"
        , fgColor = "grey"
        , alpha = 100
@@ -16,24 +19,26 @@ Config {
        , allDesktops = True
        , overrideRedirect = True
        , commands = [ Run StdinReader
-					, Run Com "/bin/bash" ["-c", "echo ${USER}@`hostname`"] "userAtHost" 1000
+					, Run Com "/bin/bash" ["-c", "echo '<fn=2>\xf4fb</fn> '${USER}@`hostname`"] "userAtHost" 1000
 					
 					-- Battery information. This is likely to require some customization
 					-- based upon your specific hardware. Or, for a desktop you may want
 					-- to just remove this section entirely.
 					, Run Battery [
-					"-t", "<acstatus> <left>%",
+					"-t", "<acstatus>",
 					"--",
-					--"-c", "charge_full",
-					"-O", "<fn=2>\xf1e6</fn>",
-					"-o", "<fn=2>\xf242</fn>",
+                    "-i", "<fn=2>\xf1e6</fn>",
+					"-O", "<fn=2>\xf1e6</fn> <left>%",
+					"-o", "<fn=2>\xf242</fn> <left>%",
+                    "-L", "10",
+                    "-H", "80",
 					"-h", "green",
 					"-l", "red"
 					] 10
 
-					, Run Date "%A:   %B %d, %Y  %H:%M" "date" 10
+					, Run Date "%a: %B %d, %Y  %H:%M" "date" 10
 					, Run Com "/bin/bash" ["-c", "echo -e '<fn=2>\xf0ae</fn>' `task status:pending count`"] "tasks" 60
-					, Run Com "/bin/bash" ["-c", "echo -e '<fn=1>\xf395</fn> ' `docker ps -q | wc -l`"] "docker" 60
+					, Run Com "/bin/bash" ["-c", "echo -e '<fn=1>\xf395</fn>' `docker ps -q | wc -l`"] "docker" 60
                     ]
        , sepChar = "%"
        , alignSep = "}{"
