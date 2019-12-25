@@ -18,7 +18,7 @@ Config {
        , iconRoot = "."
        , allDesktops = True
        , overrideRedirect = True
-       , commands = [ Run StdinReader
+       , commands = [ Run UnsafeStdinReader
 					, Run Com "/bin/bash" ["-c", "echo '<fn=2>\xf4fb</fn> '${USER}@`hostname`"] "userAtHost" 1000
 					
 					-- Battery information. This is likely to require some customization
@@ -43,7 +43,7 @@ Config {
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }\
+       , template = "%UnsafeStdinReader% }\
 					\{ / %docker% / %tasks% / %date% / %volume% %battery% / %userAtHost% /  "
        }
 
