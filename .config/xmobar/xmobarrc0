@@ -39,11 +39,12 @@ Config {
 					, Run Date "%a: %B %d, %Y  %H:%M" "date" 10
 					, Run Com "/bin/bash" ["-c", "echo -e '<fn=2>\xf0ae</fn>' `task status:pending count`"] "tasks" 60
 					, Run Com "/bin/bash" ["-c", "echo -e '<fn=1>\xf395</fn>' `docker ps -q | wc -l`"] "docker" 60
+					, Run Com "/bin/bash" ["-c", "~/.config/xmobar/volume.sh"] "volume" 60
                     ]
        , sepChar = "%"
        , alignSep = "}{"
        , template = "%StdinReader% }\
-					\{ / %docker% / %tasks% / %date% / %battery% / %userAtHost% /  "
+					\{ / %docker% / %tasks% / %date% / %volume% %battery% / %userAtHost% /  "
        }
 
 -- vim: ft=haskell:foldmethod=marker:expandtab:ts=4:shiftwidth=4
