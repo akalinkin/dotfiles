@@ -71,7 +71,7 @@ myTextEditor = "vim"
 main = do
     -- Launching xmobars
     xmproc0 <- spawnPipe "xmobar -x 0 /home/alex/.config/xmobar/xmobarrc0"
-    xmproc1 <- spawnPipe "xmobar -x 1 /home/alex/.config/xmobar/xmobarrc1"
+    -- xmproc1 <- spawnPipe "xmobar -x 1 /home/alex/.config/xmobar/xmobarrc1"
 
     xmonad $ ewmh desktopConfig
         { manageHook = ( isFullscreen --> doFullFloat ) <+> myManageHook <+> manageHook desktopConfig <+> manageDocks
@@ -84,7 +84,7 @@ main = do
         , startupHook           = myStartupHook
         , layoutHook            = myLayoutHook 
         , logHook               = dynamicLogWithPP xmobarPP
-                        { ppOutput = \x -> hPutStrLn xmproc0 x >> hPutStrLn xmproc1 x --  >> hPutStrLn xmproc2 x
+                        { ppOutput = \x -> hPutStrLn xmproc0 x -- >> hPutStrLn xmproc1 x --  >> hPutStrLn xmproc2 x
                         , ppCurrent = xmobarColor "#F9EE98" "" . wrap "[" "]" -- Current workspace in xmobar
                         , ppVisible = xmobarColor "#c3e88d" ""                -- Visible but not current workspace
                         , ppHidden = xmobarColor "#7587A6" "" . wrap "" "*"   -- Hidden workspaces in xmobar
@@ -218,4 +218,12 @@ myKeys = --- Xmonad
         --- Open Terminal
         , ("M-<Return>", spawn myTerminal)
 
+        --- Volume controls
+        , ("<XF86AudioMute>" , spawn "amixer -q sset Master toggle") --Toggle Volume
+        , ("<XF86AudioLowerVolume>", spawn "amixer -q set Master 5%- unmute") -- lower volume
+        , ("<XF86AudioRaiseVolume>", spawn "amixer -q set Master 5%+ unmute") -- raise volume
+
+        --- Screenshot
+        , ("<Print>", spawn "scrot ~/Pictures/scrot_`date '+%Y%m%d-%H%M%S'`.png") -- screenshot of focused window
+        , ("M-<Print>", spawn "scrot -u ~/Pictures/scrot_`date '+%Y%m%d-%H%M%S'`.png") -- screenshot of focused window
         ]
