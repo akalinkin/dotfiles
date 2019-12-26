@@ -71,7 +71,7 @@ myTextEditor = "vim"
 main = do
     -- Launching xmobars
     xmproc0 <- spawnPipe "xmobar -x 0 /home/alex/.config/xmobar/xmobarrc0"
---    xmproc1 <- spawnPipe "xmobar -x 1 /home/alex/.config/xmobar/xmobarrc1"
+    -- xmproc1 <- spawnPipe "xmobar -x 1 /home/alex/.config/xmobar/xmobarrc1"
 
     xmonad $ ewmh desktopConfig
         { manageHook = ( isFullscreen --> doFullFloat ) <+> myManageHook <+> manageHook desktopConfig <+> manageDocks
@@ -228,6 +228,14 @@ myKeys = --- Xmonad
         --- Open Terminal
         , ("M-<Return>", spawn myTerminal)
 
+        --- Volume controls
+        , ("<XF86AudioMute>" , spawn "amixer -q sset Master toggle") --Toggle Volume
+        , ("<XF86AudioLowerVolume>", spawn "amixer -q set Master 5%- unmute") -- lower volume
+        , ("<XF86AudioRaiseVolume>", spawn "amixer -q set Master 5%+ unmute") -- raise volume
+
+        --- Screenshot
+        , ("<Print>", spawn "scrot ~/Pictures/scrot_`date '+%Y%m%d-%H%M%S'`.png") -- screenshot of focused window
+        , ("M-<Print>", spawn "scrot -u ~/Pictures/scrot_`date '+%Y%m%d-%H%M%S'`.png") -- screenshot of focused window
         ]
 
 -- vim: ft=haskell:foldmethod=marker:expandtab:ts=4:shiftwidth=4
