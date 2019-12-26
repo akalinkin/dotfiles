@@ -71,7 +71,7 @@ myTextEditor = "vim"
 main = do
     -- Launching xmobars
     xmproc0 <- spawnPipe "xmobar -x 0 /home/alex/.config/xmobar/xmobarrc0"
-    xmproc1 <- spawnPipe "xmobar -x 1 /home/alex/.config/xmobar/xmobarrc1"
+--    xmproc1 <- spawnPipe "xmobar -x 1 /home/alex/.config/xmobar/xmobarrc1"
 
     xmonad $ ewmh desktopConfig
         { manageHook = ( isFullscreen --> doFullFloat ) <+> myManageHook <+> manageHook desktopConfig <+> manageDocks
@@ -84,7 +84,7 @@ main = do
         , startupHook           = myStartupHook
         , layoutHook            = myLayoutHook 
         , logHook               = dynamicLogWithPP xmobarPP
-                        { ppOutput = \x -> hPutStrLn xmproc0 x >> hPutStrLn xmproc1 x --  >> hPutStrLn xmproc2 x
+                        { ppOutput = \x -> hPutStrLn xmproc0 x -- >> hPutStrLn xmproc1 x --  >> hPutStrLn xmproc2 x
                         , ppCurrent = xmobarColor "#F9EE98" "" . wrap "[" "]" -- Current workspace in xmobar
                         , ppVisible = xmobarColor "#c3e88d" ""                -- Visible but not current workspace
                         , ppHidden = xmobarColor "#7587A6" "" . wrap "" "*"   -- Hidden workspaces in xmobar
@@ -99,9 +99,18 @@ main = do
         } `additionalKeysP`     myKeys 
 
 
+xmobarEscape = concatMap doubleLts
+  where doubleLts '<' = "<<"
+        doubleLts x   = [x]
+
 myWorkspaces :: [String]
-myWorkspaces =  map show [1..9]
---myWorkspaces =  ["1:web","2:dev","3:term","4:vm","5:media"] ++ map show [6..9]
+myWorkspaces = clickable . (map xmobarEscape) $ ["1","2","3","4","5","6","7","8","9"]
+    where
+        clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
+                         (i,ws) <- zip [1..9] l,
+                         let n = i ]
+
+--myWorkspaces =  map show [1..9]
 
 ------------------------------------------------------------------------
 ---- Window rules
@@ -201,6 +210,7 @@ myStartupHook = do
     spawnOnce "conky &"
     spawnOnce "telegram &"
     spawnOnce "dropbox start &"
+    spawnOnce "chromium &"
     setWMName "LG3D"
 
 myKeys = --- Xmonad
@@ -219,3 +229,5 @@ myKeys = --- Xmonad
         , ("M-<Return>", spawn myTerminal)
 
         ]
+
+-- vim: ft=haskell:foldmethod=marker:expandtab:ts=4:shiftwidth=4
