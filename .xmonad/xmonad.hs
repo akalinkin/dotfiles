@@ -210,6 +210,7 @@ myStartupHook = do
     spawnOnce "conky &"
     spawnOnce "telegram &"
     spawnOnce "dropbox start &"
+    spawnOnce "nextcloud &"
     spawnOnce "chromium &"
     setWMName "LG3D"
 
