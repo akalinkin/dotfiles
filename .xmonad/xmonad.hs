@@ -208,10 +208,11 @@ myStartupHook = do
     spawnOnce "nitrogen --restore &"
     spawnOnce "compton --config /home/alex/.config/compton/compton.conf &"
     spawnOnce "conky &"
-    spawnOnce "telegram &"
+    spawnOnce "telegram-desktop &"
     spawnOnce "dropbox start &"
     spawnOnce "nextcloud &"
     spawnOnce "chromium &"
+    spawnOnce "gnome-pomodoro --no-default-window"
     setWMName "LG3D"
 
 myKeys = --- Xmonad
