@@ -12,8 +12,11 @@ set number relativenumber      " show line numbers and relative numbers (offsets
 set laststatus=2               " allways show status line
 set ruler                      " show line and col position
 "set foldmethod=manual	       " allow manual folding
-"set nofoldenable               " disable folding
+"set nofoldenable              " disable folding
 set wildmode=longest,list,full " autocomplete stuff
+set autoindent
+set backspace=indent,eol,start " Makes backspace key more powerful
+set showcmd                    " Show me what I'm typing
 
 set termguicolors              " enable true color
 " some vim in tmux fixes
@@ -25,6 +28,8 @@ set t_Co=256
 " Make sure the directory exists
 set undodir=~/.vim/undodir
 set undofile
+
+syntax on
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -144,12 +149,6 @@ cmap w!! w !sudo tee >/dev/null %
 au BufEnter *.sol set sw=4 ts=4 et
 " Requires Quramy/tsuquyomi bundle
 " autocmd FileType typescript setl omnifunc=tsuquyomi#complete
-
-" Vim5 and later versions support syntax highlighting. Uncommenting the
-" following enables syntax highlighting by default.
-if has("syntax")
-   syntax on
-endif
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
