@@ -5,6 +5,7 @@
 alias ls='lsd'
 alias h='history'
 alias s='ssh'
+alias fd='fdfind'
 
 #copy and move with progress bar
 alias pcp='rsync -aP'
@@ -40,7 +41,7 @@ alias z="zen"
 
 # Task management
 alias t="task"
-
+alias tw="timew"
 
 # Notificatios
 alias beep="echo -ne '\007'"
