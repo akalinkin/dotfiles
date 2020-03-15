@@ -8,7 +8,7 @@ import qualified XMonad.StackSet as W
 
 -- Utilities
 import XMonad.Util.Loggers
-import XMonad.Util.EZConfig (additionalKeysP, additionalMouseBindings)
+import XMonad.Util.EZConfig (additionalKeysP, additionalMouseBindings, removeKeys)
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.Run (safeSpawn, unsafeSpawn, runInTerm, spawnPipe)
 import XMonad.Util.SpawnOnce
@@ -96,7 +96,12 @@ main = do
                         , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]
                         }
 
-        } `additionalKeysP`     myKeys 
+        } 
+        `additionalKeysP`     myKeys
+        `removeKeys`
+        [ 
+          (mod4Mask, xK_space)
+        ]
 
 
 xmobarEscape = concatMap doubleLts
@@ -136,6 +141,7 @@ myManageHook = composeAll
       , className =? "Virtualbox"  --> doFloat
       , className =? "Gimp"        --> doFloat
       , className =? "Gimp"        --> doShift "<action=xdotool key super+7>7</action>"
+      , className =? "slack"       --> doShift "<action=xdotool key super+8>8</action>"
       , className =? "telegram"    --> doShift "<action=xdotool key super+9>9</action>"
       , (className =? "Firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
      ] <+> namedScratchpadManageHook myScratchPads
@@ -213,12 +219,16 @@ myStartupHook = do
     spawnOnce "nextcloud &"
     spawnOnce "chromium &"
     spawnOnce "gnome-pomodoro --no-default-window"
+    spawnOnce "slack &"
     setWMName "LG3D"
 
 myKeys = --- Xmonad
         [ ("M-C-r", spawn "xmonad --recompile")      -- Recompiles xmonad
         , ("M-S-r", spawn "xmonad --restart")        -- Restarts xmonad
         , ("M-S-q", io exitSuccess)                  -- Quits xmonad
+        
+        -- Layouts
+        , ("M-<Tab>", sendMessage NextLayout)        -- Switch to next layout
 
         --- Scratchpads
         , ("M-C-<Return>", namedScratchpadAction myScratchPads "terminal")
