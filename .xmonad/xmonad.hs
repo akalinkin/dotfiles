@@ -60,8 +60,6 @@ import XMonad.Layout.IM (withIM, Property(Role))
 -- Prompts
 import XMonad.Prompt (defaultXPConfig, XPConfig(..), XPPosition(Top), Direction1D(..))
 
-
-
 -- CONFIG
 modKey       = mod4Mask
 myTerminal   = "gnome-terminal"
@@ -109,10 +107,10 @@ xmobarEscape = concatMap doubleLts
         doubleLts x   = [x]
 
 myWorkspaces :: [String]
-myWorkspaces = clickable . (map xmobarEscape) $ ["1","2","3","4","5","6","7","8","9"]
+myWorkspaces = clickable . (map xmobarEscape) $ ["1","2","3","4","5"]
     where
         clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
-                         (i,ws) <- zip [1..9] l,
+                         (i,ws) <- zip [1..5] l,
                          let n = i ]
 
 --myWorkspaces =  map show [1..9]
@@ -136,13 +134,13 @@ myManageHook = composeAll
      [
         className =? "Firefox"     --> doShift "<action=xdotool key super+1>1</action>"
       , className =? "Chromium"    --> doShift "<action=xdotool key super+1>1</action>"
-      , className =? "cmus"        --> doShift "<action=xdotool key super+8>8</action>"
-      , className =? "vlc"         --> doShift "<action=xdotool key super+8>8</action>"
+      , className =? "cmus"        --> doShift "<action=xdotool key super+4>4</action>"
+      , className =? "vlc"         --> doShift "<action=xdotool key super+4>4</action>"
       , className =? "Virtualbox"  --> doFloat
       , className =? "Gimp"        --> doFloat
-      , className =? "Gimp"        --> doShift "<action=xdotool key super+7>7</action>"
-      , className =? "slack"       --> doShift "<action=xdotool key super+8>8</action>"
-      , className =? "telegram"    --> doShift "<action=xdotool key super+9>9</action>"
+      , className =? "Gimp"        --> doShift "<action=xdotool key super+4>4</action>"
+      , className =? "slack"       --> doShift "<action=xdotool key super+5>5</action>"
+      , className =? "telegram"    --> doShift "<action=xdotool key super+5>5</action>"
       , (className =? "Firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
      ] <+> namedScratchpadManageHook myScratchPads
 
