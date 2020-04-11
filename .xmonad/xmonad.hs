@@ -23,8 +23,8 @@ import XMonad.Hooks.EwmhDesktops   -- required for xcomposite in obs to work
 
 -- Actions
 -- import XMonad.Actions.Minimize (minimizeWindow)
-
 import XMonad.Actions.Promote
+import XMonad.Actions.SpawnOn
 import XMonad.Actions.RotSlaves (rotSlavesDown, rotAllDown)
 import XMonad.Actions.CopyWindow (kill1, copyToAll, killAllOtherCopies, runOrCopy)
 import XMonad.Actions.WindowGo (runOrRaise, raiseMaybe)
@@ -69,10 +69,9 @@ myTextEditor = "vim"
 main = do
     -- Launching xmobars
     xmproc0 <- spawnPipe "xmobar -x 0 /home/alex/.config/xmobar/xmobarrc0"
-    -- xmproc1 <- spawnPipe "xmobar -x 1 /home/alex/.config/xmobar/xmobarrc1"
 
     xmonad $ ewmh desktopConfig
-        { manageHook = ( isFullscreen --> doFullFloat ) <+> myManageHook <+> manageHook desktopConfig <+> manageDocks
+        { manageHook = manageSpawn <+> ( isFullscreen --> doFullFloat ) <+> myManageHook <+> manageHook desktopConfig <+> manageDocks
         , terminal              = myTerminal
         , modMask               = modKey
         , borderWidth           = 2
@@ -101,19 +100,7 @@ main = do
           (mod4Mask, xK_space)
         ]
 
-
-xmobarEscape = concatMap doubleLts
-  where doubleLts '<' = "<<"
-        doubleLts x   = [x]
-
-myWorkspaces :: [String]
-myWorkspaces = clickable . (map xmobarEscape) $ ["1","2","3","4","5"]
-    where
-        clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
-                         (i,ws) <- zip [1..5] l,
-                         let n = i ]
-
---myWorkspaces =  map show [1..9]
+myWorkspaces = ["1","2","3","4","5"]
 
 ------------------------------------------------------------------------
 ---- Window rules
@@ -132,18 +119,18 @@ myWorkspaces = clickable . (map xmobarEscape) $ ["1","2","3","4","5"]
 myManageHook :: Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll
      [
-        className =? "Firefox"     --> doShift "<action=xdotool key super+1>1</action>"
-      , className =? "Chromium"    --> doShift "<action=xdotool key super+1>1</action>"
-      , className =? "cmus"        --> doShift "<action=xdotool key super+4>4</action>"
-      , className =? "vlc"         --> doShift "<action=xdotool key super+4>4</action>"
+        className =? "Firefox"     --> doShift "2"
+      , className =? "Chromium"    --> doShift "2"
+      , className =? "vlc"         --> doShift "5"
       , className =? "Virtualbox"  --> doFloat
       , className =? "Gimp"        --> doFloat
-      , className =? "Gimp"        --> doShift "<action=xdotool key super+4>4</action>"
-      , className =? "slack"       --> doShift "<action=xdotool key super+5>5</action>"
-      , className =? "telegram"    --> doShift "<action=xdotool key super+5>5</action>"
+      , className =? "Gimp"        --> doShift "4"
+      , className =? "Slack"       --> doShift "1"
+      , className =? "Telegram"    --> doShift "1"
+      , className =? "Emacs"       --> doShift "3"
+      , className =? "Code"        --> doShift "3"
       , (className =? "Firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
      ] <+> namedScratchpadManageHook myScratchPads
-
 
 ------------------------------------------------------------------------
 ---- Layouts
@@ -167,7 +154,6 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
                                    space ||| 
                                    floats
 
-
 tall       = renamed [Replace "tall"]     $ limitWindows 12 $ spacing 6 $ ResizableTall 1 (3/100) (1/2) []
 grid       = renamed [Replace "grid"]     $ limitWindows 12 $ spacing 6 $ mkToggle (single MIRROR) $ Grid (16/10)
 threeCol   = renamed [Replace "threeCol"] $ limitWindows 3  $ ThreeCol 1 (3/100) (1/2) 
@@ -182,11 +168,9 @@ floats     = renamed [Replace "floats"]   $ limitWindows 20 $ simplestFloat
 ------------------------------------------------------------------------
 -----SCRATCHPADS
 --------------------------------------------------------------------------
-
 myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                 , NS "cmus" spawnCmus findCmus manageCmus  
                 ]
-
     where
     spawnTerm  = myTerminal ++  " -n scratchpad"
     findTerm   = resource =? "scratchpad"
@@ -205,20 +189,19 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  t = 0.95 -h
                  l = 0.95 -w
 
-
-
 myStartupHook = do
+    setWMName "LG3D"
+    spawnOnce "compton --config /home/alex/.config/compton/compton.conf &"
     spawnOnce "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --widthtype pixel --width 200 --transparent true --alpha 100 --tint 0x000000 --height 20 --monitor 0 &"
     spawnOnce "nitrogen --restore &"
-    spawnOnce "compton --config /home/alex/.config/compton/compton.conf &"
     spawnOnce "conky &"
-    spawnOnce "telegram-desktop &"
     spawnOnce "dropbox start &"
     spawnOnce "nextcloud &"
-    spawnOnce "chromium &"
     spawnOnce "gnome-pomodoro --no-default-window"
+    spawnOnce "emacs &"
+    spawnOnce "telegram-desktop &"
     spawnOnce "slack &"
-    setWMName "LG3D"
+    spawnOnce "chromium &"
 
 myKeys = --- Xmonad
         [ ("M-C-r", spawn "xmonad --recompile")      -- Recompiles xmonad
