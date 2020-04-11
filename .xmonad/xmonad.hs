@@ -208,7 +208,7 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
 
 
 myStartupHook = do
-    spawnOnce "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --widthtype pixel --width 200 --transparent true --alpha 100 --tint 0x000000 --height 20 --monitor 0 &"
+    spawnOnce "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --widthtype pixel --width 200 --transparent true --alpha 100 --tint 0x000000 --height 22 --monitor 0 &"
     spawnOnce "nitrogen --restore &"
     spawnOnce "compton --config /home/alex/.config/compton/compton.conf &"
     spawnOnce "conky &"
