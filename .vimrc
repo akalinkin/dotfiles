@@ -41,11 +41,9 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/nerdtree'
 Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'prabirshrestha/async.vim'
 Plugin 'SirVer/ultisnips'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vimwiki/vimwiki'
@@ -56,6 +54,7 @@ Plugin 'dense-analysis/ale'
 Bundle 'OmniSharp/omnisharp-vim'
 Plugin 'fatih/vim-go'
 Plugin 'ap/vim-css-color'
+Plugin 'tpope/vim-fugitive'
 
 " Solidity language (Ethereum smart contracts)
 "Plugin 'tomlion/vim-solidity'
@@ -104,8 +103,8 @@ set tabstop=4
 set wildmenu
 
 " Color column to see 100 (soft limit) 120 (hard limit)
-set colorcolumn=101 ",121
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+"set colorcolumn=101 ",121
+"highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 :imap jj <Esc>
 nnoremap ; :
@@ -121,12 +120,7 @@ nnoremap ; :
 map j gj
 map k gk
 
-" Show hidden files in tree
-let NERDTreeShowHidden=1
-
-" Csortcut for NERDTree = 'e
 let mapleader = ","
-map <leader>e :NERDTreeToggle<CR>
 
 " VimWiki markdown
 let g:vimwiki_list = [{'path': '~/vimwiki/',
