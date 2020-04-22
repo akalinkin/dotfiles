@@ -55,6 +55,7 @@ Bundle 'OmniSharp/omnisharp-vim'
 Plugin 'fatih/vim-go'
 Plugin 'ap/vim-css-color'
 Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/goyo.vim'
 
 " Solidity language (Ethereum smart contracts)
 "Plugin 'tomlion/vim-solidity'
@@ -106,6 +107,9 @@ set wildmenu
 "set colorcolumn=101 ",121
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
 
+" *** Key mappings ***********************************************************
+let mapleader = ","
+
 :imap jj <Esc>
 nnoremap ; :
 "nnoremap : ;
@@ -120,11 +124,11 @@ nnoremap ; :
 map j gj
 map k gk
 
-let mapleader = ","
-
 " VimWiki markdown
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+
+map <Leader>z :Goyo<CR>
 
 " http://stackoverflow.com/questions/1005/getting-root-permissions-on-a-file-inside-of-vi
 cmap w!! w !sudo tee >/dev/null %
