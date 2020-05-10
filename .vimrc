@@ -29,6 +29,7 @@ set t_Co=256
 set undodir=~/.vim/undodir
 set undofile
 
+
 syntax on
 
 " set the runtime path to include Vundle and initialize
@@ -56,6 +57,8 @@ Plugin 'fatih/vim-go'
 Plugin 'ap/vim-css-color'
 Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/goyo.vim'
+
+Plugin 'liuchengxu/vim-which-key'
 
 " Solidity language (Ethereum smart contracts)
 "Plugin 'tomlion/vim-solidity'
@@ -124,11 +127,25 @@ nnoremap ; :
 map j gj
 map k gk
 
+" vim-which-key
+" set notimeout
+set timeoutlen=500
+" let g:which_key_vertical=1
+nnoremap <silent> <leader> :WhichKey ','<CR>
+
 " VimWiki markdown
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
-
+" *** Goyo
 map <Leader>z :Goyo<CR>
+
+" *** Splits
+set splitbelow splitright
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " http://stackoverflow.com/questions/1005/getting-root-permissions-on-a-file-inside-of-vi
 cmap w!! w !sudo tee >/dev/null %
