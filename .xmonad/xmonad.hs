@@ -227,8 +227,9 @@ myKeys = --- Xmonad
         , ("<XF86AudioRaiseVolume>", spawn "amixer -q set Master 5%+ unmute") -- raise volume
 
         --- Screenshot
-        , ("<Print>", spawn "scrot ~/Pictures/scrot_`date '+%Y%m%d-%H%M%S'`.png") -- screenshot of focused window
-        , ("M-<Print>", spawn "scrot -u ~/Pictures/scrot_`date '+%Y%m%d-%H%M%S'`.png") -- screenshot of focused window
+        , ("<Print>", spawn "sleep 0.2; scrot -s ~/Pictures/scrot_`date '+%Y%m%d-%H%M%S'`.png -e 'xclip -selection c -t image/png < $f'") -- screenshot interactively and copy to clipboard
+        , ("S-<Print>", spawn "scrot -u ~/Pictures/scrot_`date '+%Y%m%d-%H%M%S'`.png -e 'xclip -selection c -t image/png < $f'") -- screenshot of focused window and copy to clipboard
+        , ("C-S-<Print>", spawn "scrot ~/Pictures/scrot_`date '+%Y%m%d-%H%M%S'`.png -e 'xclip -selection c -t image/png < $f'") -- screenshot of all screen(s) and copy to clipboard
         ]
 
 -- vim: ft=haskell:foldmethod=marker:expandtab:ts=4:shiftwidth=4
