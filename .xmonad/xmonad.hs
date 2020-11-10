@@ -198,7 +198,7 @@ myStartupHook = do
     spawnOnce "dropbox start &"
     spawnOnce "nextcloud &"
     spawnOnce "gnome-pomodoro --no-default-window"
-    spawnOnce "emacs &"
+    spawnOnce "code &"
     spawnOnce "telegram-desktop &"
     spawnOnce "slack &"
     spawnOnce "chromium &"
