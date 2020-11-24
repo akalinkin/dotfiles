@@ -195,6 +195,8 @@ myStartupHook = do
     spawnOnce "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --widthtype pixel --width 200 --transparent true --alpha 100 --tint 0x000000 --height 22 --monitor 0 &"
     spawnOnce "nitrogen --restore &"
     spawnOnce "conky &"
+    spawnOnce "solaar &"
+    spawnOnce "nm-applet &"
     spawnOnce "dropbox start &"
     spawnOnce "nextcloud &"
     spawnOnce "gnome-pomodoro --no-default-window"
