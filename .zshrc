@@ -63,10 +63,26 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   zsh-autosuggestions
+  aws
+  cargo
   git
+  git-flow
+  history
+  node
   kubectl
   docker
   docker-compose
+  docker-machine
+  dotnet
+  fzf
+  helm
+  taskwarrior
+  systemd
+  terraform
+  thefuck
+  tmux
+  vi-mode
+  vscode
 )
 
 source $ZSH/oh-my-zsh.sh

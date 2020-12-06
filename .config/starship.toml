@@ -1,7 +1,7 @@
 [username]
 style_user = "green bold"
 style_root = "red bold"
-format = "[$user]($style)"
+format = "[ $user]($style)"
 disabled = false
 show_always = true
 
