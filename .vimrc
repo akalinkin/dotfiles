@@ -62,6 +62,9 @@ Plugin 'liuchengxu/vim-which-key'
 
 " Solidity language (Ethereum smart contracts)
 "Plugin 'tomlion/vim-solidity'
+" Dart & Flatter language
+Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'thosakwe/vim-flutter'
 
 "Plugin 'editorconfig/editorconfig-vim'
 
